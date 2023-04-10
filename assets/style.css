@@ -18,8 +18,8 @@
 
 /*main sect */
 .flexbox-container {
-    text-align: center;
     margin: 0 auto;
+    text-align: center;
 }
 .heading-title {
     margin: 0 auto;
@@ -36,4 +36,15 @@
     padding: 10px 22px 10px 22px;
     border-radius: 7px;
     border: none;
+}
+main button{
+    background-color: #070A52 ;
+    color: white;
+    padding: 10px 22px 10px 22px;
+    margin: 10px auto;
+    border-radius: 7px;
+    border: none;
+    text-align: start;
+    display: block;
+    font-size: 1.5rem;
 }
