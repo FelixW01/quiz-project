@@ -56,3 +56,30 @@ main button:hover {
     width: 40%;
     margin-top: 1.5rem;
 }
+
+.show-score {
+    text-align: start;
+    font-size: 1.25rem;
+}
+
+.score-button {
+    text-align: start;
+    display: inline;
+    margin-left: 10px;
+    font-size: 1.25rem;
+    padding: 4px 25px 4px 25px;
+}
+.score-h2 {
+    display: inline;
+    margin-right: 6px;
+    font-size: 1.5rem;
+}
+
+.score-input {
+    height: 25px;
+}
+.score-title {
+    text-align: start;
+    width: 35%;
+    font-size: 2rem;
+}
