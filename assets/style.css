@@ -22,8 +22,8 @@
     text-align: center;
 }
 .heading-title {
-    margin: 0 auto;
-    font-size: 1.25rem;
+    margin: 0 auto 2rem auto;
+    font-size: 1.5rem;
 }
 .main-content {
     margin: 0 auto;
@@ -47,4 +47,12 @@ main button{
     text-align: start;
     display: block;
     font-size: 1.5rem;
+}
+
+main button:hover {
+    background-color: #FFABAB;
+}
+.answer-validation hr {
+    width: 40%;
+    margin-top: 1.5rem;
 }
