@@ -79,11 +79,9 @@ function changeContent() {
     //changes question text
     function goNext() {
         
-        console.log(">>>" + currentQuestionIndex + "<<< BEFORE")
         var currentQuestion = questions[currentQuestionIndex];
         gameTitle.innerHTML = currentQuestion.question;
         currentQuestionIndex ++;
-        console.log(">>>" + currentQuestionIndex + "<<< AFTER")
         
         //makes buttons from questions array
         currentQuestion.answers.forEach(answer => {
@@ -104,14 +102,10 @@ function changeContent() {
 
         //checks if the clicked answer is correct
          function answerCheck(event) { 
-            // console.log(currentQuestion.answers.findIndex(isTrue))
-            // console.log("current questions" , currentQuestion.answers)
-            // console.log(">>>>>>>>>>>>>>>check", selectedAnswer.innerHTML)
-            // console.log("true or false>>>", currentQuestion.answers[currentQuestion.answers.findIndex(isTrue)].correct)
+
             const selectedAnswer = event.target;
             const isTrue = q => (q.text === selectedAnswer.innerHTML)
             if (currentQuestion.answers[currentQuestion.answers.findIndex(isTrue)].correct) { 
-                console.log("correct!")
                 validationH1.textContent = "Correct!"
                 validation.appendChild(validationHr)
                 validation.appendChild(validationH1)
@@ -119,28 +113,20 @@ function changeContent() {
                 goNext()
                 // add "correct!" h2 on html
             } else {
-                console.log("wrong!")
                 validationH1.textContent = "Wrong!"
                 validation.appendChild(validationHr)
                 validation.appendChild(validationH1)
-                time - 10;
-                console.log(">>>>>>>>>>>>>>>>>>" + time);
+                time = time -10
                 removeBtns()
                 goNext()
-                
-                // add "WRONG!" h2 on html and -10 secs from timer
             }
         }
      }
 }
 
-    
-
-
 
 
 var startBtn = document.querySelector("#startBtn");
-console.log(startBtn);
 
 function startGame() {
     var page = changeContent();
