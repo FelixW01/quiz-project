@@ -12,7 +12,7 @@ let initialsInput = document.createElement("input");
 let submitBtn = document.createElement("button");
 let initialsH2 = document.createElement("h2");
 let time = 75;
-
+let gameOver = false;
 
 const questions = [ 
         {
@@ -69,7 +69,7 @@ function countDownTimer() {
         if (time <= 0) {
             timer.textContent = "Game Over";
             clearInterval(gameTimer);
-        }if (currentQuestionIndex >= questions.length) {
+        }if (gameOver) {
             clearInterval(gameTimer);
         }
         else {
@@ -87,8 +87,8 @@ function changeContent() {
 
     //changes question text
     function goNext() {
-        console.log(questions.length + "<<<<<<<<<<<<");
-        console.log(currentQuestionIndex + "<<<<<<<<<<<<<<");
+        console.log(questions.length + "<<<<<<<<<<<< question length");
+        console.log(currentQuestionIndex + "<<<<<<<<<<<<<< current question index");
         showScore();
         
         var currentQuestion = questions[currentQuestionIndex];
@@ -105,7 +105,6 @@ function changeContent() {
         });
 
         const questionBtns = document.querySelectorAll(".button");
-        console.log(questionBtns)
         questionBtns.forEach(btn => btn.addEventListener("click", answerCheck));
 
          function removeBtns() {
@@ -135,6 +134,7 @@ function changeContent() {
         function showScore() {
             if(currentQuestionIndex > questions.length-1) {
                 console.log("question is more than 4>>>>>>>>>>>>");
+                let = gameOver = true;
                 validationH1.setAttribute("style", "display: none")
                 validationHr.setAttribute("style", "display: none")
                 timer.textContent = "Time: " + time ;
