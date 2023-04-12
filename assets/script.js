@@ -14,6 +14,7 @@ let initialsH2 = document.createElement("h2");
 let time = 75;
 let gameOver = false;
 
+
 const questions = [ 
         {
             question: "Commonly used data types DO Not Include: ",
@@ -155,6 +156,27 @@ function changeContent() {
         }
      }
 }
+const initialsStorage = localStorage.getItem("initials")
+const scoreStorage = localStorage.getItem("score")
+let initials;
+let score;
+//Stores initials and high score to localStorage
+function addHighScore() {
+if(initialsStorage === null) {
+    initials = [];
+    score = [];
+} else {
+    initials = JSON.parse(initialsStorage);
+    score = JSON.parse(scoreStorage);
+}
+
+initials.push(initialsInput.value);
+score.push(time);
+localStorage.setItem("initials", JSON.stringify(initials));
+localStorage.setItem("score", JSON.stringify(score));
+}
+
+submitBtn.addEventListener("click", addHighScore);
 
 
 
