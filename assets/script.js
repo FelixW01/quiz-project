@@ -64,20 +64,6 @@ const questions = [
 ]
 let currentQuestionIndex = 0;
 
-function countDownTimer() {
-    var gameTimer = setInterval(function() {
-    console.log(time);
-        if (time <= 0) {
-            timer.textContent = "Game Over";
-            clearInterval(gameTimer);
-        }if (gameOver) {
-            clearInterval(gameTimer);
-        }
-        else {
-            timer.textContent = "Time: " + time--;
-        }
-    }, 1000);
-}
 
 function changeContent() {
     startP.setAttribute("style", "display: none");
@@ -85,9 +71,49 @@ function changeContent() {
     countDownTimer(); 
     goNext();
     
+    function countDownTimer() {
+        var gameTimer = setInterval(function() {
+        console.log(time);
+            if (time <= 0) {
+                timer.textContent = "Game Over";
+                clearInterval(gameTimer);
+                showScore();
+            }if (gameOver) {
+                clearInterval(gameTimer);
+            }
+            else {
+                timer.textContent = "Time: " + time--;
+            }
+        }, 200);
+    }
+    
+    //end score page
+    function showScore() {
+        if(currentQuestionIndex > questions.length-1) {
+            console.log("question is more than 4>>>>>>>>>>>>");
+            let = gameOver = true;
+            validationH1.setAttribute("style", "display: none")
+            validationHr.setAttribute("style", "display: none")
+            timer.textContent = "Time: " + time ;
+            gameContent.classList.add("show-score")
+            submitBtn.classList.add("score-button")
+            initialsH2.classList.add("score-h2")
+            initialsInput.classList.add("score-input")
+            gameTitle.classList.add("score-title")
+            gameContent.appendChild(showScoreH2);
+            gameContent.appendChild(initialsH2)
+            gameContent.appendChild(initialsInput);
+            gameContent.appendChild(submitBtn);
+            gameTitle.textContent = "All Done! ";
+            initialsH2.textContent = "Enter initials: ";
+            showScoreH2.textContent = "Your final score is " + time + ".";
+            submitBtn.textContent = "submit";
+        }
+    }
 
     //changes question text
     function goNext() {
+        
         console.log(questions.length + "<<<<<<<<<<<< question length");
         console.log(currentQuestionIndex + "<<<<<<<<<<<<<< current question index");
         showScore();
@@ -130,30 +156,7 @@ function changeContent() {
                 removeBtns()
                 goNext()
             }
-        }
-        //end score page
-        function showScore() {
-            if(currentQuestionIndex > questions.length-1) {
-                console.log("question is more than 4>>>>>>>>>>>>");
-                let = gameOver = true;
-                validationH1.setAttribute("style", "display: none")
-                validationHr.setAttribute("style", "display: none")
-                timer.textContent = "Time: " + time ;
-                gameContent.classList.add("show-score")
-                submitBtn.classList.add("score-button")
-                initialsH2.classList.add("score-h2")
-                initialsInput.classList.add("score-input")
-                gameTitle.classList.add("score-title")
-                gameContent.appendChild(showScoreH2);
-                gameContent.appendChild(initialsH2)
-                gameContent.appendChild(initialsInput);
-                gameContent.appendChild(submitBtn);
-                gameTitle.textContent = "All Done! ";
-                initialsH2.textContent = "Enter initials: ";
-                showScoreH2.textContent = "Your final score is " + time + ".";
-                submitBtn.textContent = "submit";
-            }
-        }
+        }    
      }
 }
 const initialsStorage = localStorage.getItem("initials")
@@ -174,6 +177,7 @@ initials.push(initialsInput.value);
 score.push(time);
 localStorage.setItem("initials", JSON.stringify(initials));
 localStorage.setItem("score", JSON.stringify(score));
+window.location.href = "highscores.html";
 }
 
 submitBtn.addEventListener("click", addHighScore);
