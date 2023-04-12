@@ -6,6 +6,12 @@ const score = JSON.parse(scoreStorage);
 const goBackBtn = document.querySelector("#back");
 const clearBtn = document.querySelector("#clear");
 
+goBackBtn.addEventListener("click", goBack);
+clearBtn.addEventListener("click", clearScore);
+
+function goBack() {
+    window.location.href = "index.html";
+}
 
 
 for (let i = 0; i < initials.length; i++) {
@@ -14,15 +20,10 @@ for (let i = 0; i < initials.length; i++) {
     highScore.appendChild(newHighScore);
 }
 
+
 function clearScore() {
     localStorage.clear();
     location.reload();
 }
 
-function goBack() {
-    window.location.href = "index.html";
-}
 
-
-goBackBtn.addEventListener("click", goBack);
-clearBtn.addEventListener("click", clearScore);

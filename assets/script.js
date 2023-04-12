@@ -84,13 +84,11 @@ function changeContent() {
             else {
                 timer.textContent = "Time: " + time--;
             }
-        }, 200);
+        }, 1000);
     }
-    
     //end score page
     function showScore() {
         if(currentQuestionIndex > questions.length-1) {
-            console.log("question is more than 4>>>>>>>>>>>>");
             let = gameOver = true;
             validationH1.setAttribute("style", "display: none")
             validationHr.setAttribute("style", "display: none")
@@ -113,13 +111,13 @@ function changeContent() {
 
     //changes question text
     function goNext() {
-        
-        console.log(questions.length + "<<<<<<<<<<<< question length");
-        console.log(currentQuestionIndex + "<<<<<<<<<<<<<< current question index");
         showScore();
         
         var currentQuestion = questions[currentQuestionIndex];
+
+        if(currentQuestionIndex < questions.length) {
         gameTitle.innerHTML = currentQuestion.question;
+    
         currentQuestionIndex ++;
   
         //makes buttons from questions array
@@ -128,9 +126,8 @@ function changeContent() {
             button.innerHTML = answer.text;
             button.classList.add("button");
             gameContent.appendChild(button);
-            console.log(currentQuestion.answers);
         });
-
+    }
         const questionBtns = document.querySelectorAll(".button");
         questionBtns.forEach(btn => btn.addEventListener("click", answerCheck));
 
