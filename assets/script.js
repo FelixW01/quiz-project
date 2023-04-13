@@ -77,7 +77,7 @@ function changeContent() {
         console.log(time);
             if (time <= 0) {
                 clearInterval(gameTimer);
-                showScore();
+                window.location.href = "highscores.html";
             }if (gameOver) {
                 clearInterval(gameTimer);
             }
