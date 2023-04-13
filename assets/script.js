@@ -71,11 +71,11 @@ function changeContent() {
     countDownTimer(); 
     goNext();
     
+    //timer
     function countDownTimer() {
         var gameTimer = setInterval(function() {
         console.log(time);
             if (time <= 0) {
-                timer.textContent = "Game Over";
                 clearInterval(gameTimer);
                 showScore();
             }if (gameOver) {
